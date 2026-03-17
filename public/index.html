@@ -53,6 +53,8 @@
     .nav-logo img {
       height: 22px;
       width: auto;
+      filter: invert(1);
+      mix-blend-mode: screen;
       transition: opacity 0.2s;
     }
     .nav-logo:hover img { opacity: 0.85; }
@@ -465,9 +467,23 @@
       footer { flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) {
-      .hero-actions { flex-direction: column; align-items: center; }
-      .hero-info { flex-direction: column; gap: 1rem; }
-      .age-gate-actions { flex-direction: column; }
+      .hero-actions {
+        flex-direction: row;
+        width: 100%;
+      }
+      .hero-actions a {
+        flex: 1;
+        text-align: center;
+        padding: 0.85rem 1rem;
+        font-size: 0.9rem;
+      }
+      .hero-info {
+        flex-direction: row;
+        gap: 1.5rem;
+        width: 100%;
+        justify-content: center;
+      }
+      .age-gate-actions { flex-direction: row; }
     }
   </style>
 </head>
