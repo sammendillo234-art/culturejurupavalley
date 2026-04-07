@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Culture Club – Jurupa Valley | Premium Retail Experience</title>
-  <meta name="description" content="Visit Culture Club in Jurupa Valley. Premium products, knowledgeable staff, and an unmatched retail experience. Open daily." />
+  <title>Culture Club – Jurupa Valley</title>
+  <meta name="description" content="Culture Club in Jurupa Valley. A welcoming retail experience with knowledgeable staff and a curated selection." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -16,7 +16,6 @@
       --pink-light: #FF69B4;
       --pink-glow: rgba(255, 20, 147, 0.25);
       --black: #0A0A0A;
-      --black-soft: #141414;
       --black-card: #1A1A1A;
       --white: #FAFAFA;
       --gray: #888;
@@ -38,39 +37,20 @@
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1rem 2rem;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex; align-items: center; justify-content: center;
       background: rgba(10,10,10,0.85);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid rgba(255,20,147,0.1);
-      transition: background 0.3s;
     }
     .nav-logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-    }
-    .nav-logo img {
-      height: 22px;
-      width: auto;
-      transition: opacity 0.2s;
-    }
-    .nav-logo:hover img { opacity: 0.85; }
-    .nav-cta {
-      background: var(--pink);
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
       color: var(--white);
-      font-weight: 600;
-      font-size: 0.85rem;
-      padding: 0.6rem 1.5rem;
-      border-radius: 50px;
       text-decoration: none;
-      letter-spacing: 0.03em;
-      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .nav-cta:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 20px var(--pink-glow);
-    }
+    .nav-logo span { color: var(--pink); }
 
     /* ── HERO ── */
     .hero {
@@ -128,67 +108,12 @@
     .hero-sub {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
       color: var(--gray-light);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
+      max-width: 540px;
       animation: fadeUp 0.8s ease-out 0.25s both;
     }
 
-    .hero-actions {
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-      animation: fadeUp 0.8s ease-out 0.4s both;
-    }
-    .btn-primary {
-      background: var(--pink);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.3s;
-      letter-spacing: 0.02em;
-    }
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px var(--pink-glow);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--white);
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      border: 1.5px solid rgba(255,255,255,0.2);
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .btn-secondary:hover {
-      border-color: var(--pink);
-      background: rgba(255,20,147,0.06);
-    }
-
-    .hero-info {
-      display: flex; gap: 2.5rem; margin-top: 4rem;
-      animation: fadeUp 0.8s ease-out 0.55s both;
-    }
-    .hero-info-item {
-      text-align: center;
-    }
-    .hero-info-item .val {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem;
-      color: var(--pink);
-    }
-    .hero-info-item .label {
-      font-size: 0.75rem;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    /* ── FEATURES ── */
-    .features {
+    /* ── ABOUT ── */
+    .about {
       padding: 6rem 2rem;
       max-width: 1100px;
       margin: 0 auto;
@@ -298,67 +223,6 @@
     }
     .visit-item-value a:hover { color: var(--pink); }
 
-    /* ── REVIEWS ── */
-    .reviews {
-      padding: 6rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .reviews-bar {
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .reviews-score {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3.5rem;
-      color: var(--pink);
-      line-height: 1;
-    }
-    .reviews-stars {
-      color: var(--pink);
-      font-size: 1.2rem;
-      letter-spacing: 2px;
-    }
-    .reviews-count {
-      font-size: 0.85rem;
-      color: var(--gray);
-    }
-
-    /* ── CTA BANNER ── */
-    .cta-banner {
-      margin: 4rem 2rem 6rem;
-      max-width: 1100px;
-      margin-left: auto; margin-right: auto;
-      background: linear-gradient(135deg, rgba(255,20,147,0.15), rgba(255,20,147,0.05));
-      border: 1px solid rgba(255,20,147,0.2);
-      border-radius: 20px;
-      padding: 4rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .cta-banner::before {
-      content: '';
-      position: absolute;
-      width: 300px; height: 300px;
-      background: rgba(255,20,147,0.08);
-      border-radius: 50%;
-      top: -100px; right: -60px;
-      pointer-events: none;
-    }
-    .cta-banner h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      margin-bottom: 1rem;
-    }
-    .cta-banner p {
-      color: var(--gray-light);
-      font-size: 1.05rem;
-      margin-bottom: 2rem;
-      max-width: 500px;
-      margin-left: auto; margin-right: auto;
-    }
-
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(255,255,255,0.06);
@@ -378,72 +242,7 @@
       font-size: 0.75rem;
       color: var(--gray);
     }
-    .footer-links {
-      display: flex; gap: 1.5rem;
-    }
-    .footer-links a {
-      font-size: 0.8rem;
-      color: var(--gray);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--pink); }
 
-    /* ── AGE GATE OVERLAY ── */
-    .age-gate {
-      position: fixed; inset: 0; z-index: 9999;
-      background: var(--black);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      padding: 2rem;
-      transition: opacity 0.5s, visibility 0.5s;
-    }
-    .age-gate.hidden {
-      opacity: 0; visibility: hidden; pointer-events: none;
-    }
-    .age-gate h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      margin-bottom: 0.5rem;
-    }
-    .age-gate h2 span { color: var(--pink); }
-    .age-gate p {
-      color: var(--gray-light);
-      margin-bottom: 2rem;
-      font-size: 1rem;
-    }
-    .age-gate-actions {
-      display: flex; gap: 1rem;
-    }
-    .age-gate-actions button {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 0.9rem 2.5rem;
-      border-radius: 50px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .age-yes {
-      background: var(--pink);
-      color: var(--white);
-    }
-    .age-yes:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px var(--pink-glow);
-    }
-    .age-no {
-      background: transparent;
-      color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.2) !important;
-    }
-    .age-no:hover {
-      border-color: var(--pink) !important;
-    }
-
-    /* ── ANIMATIONS ── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(24px); }
       to { opacity: 1; transform: translateY(0); }
@@ -453,110 +252,48 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav { padding: 0.8rem 1.2rem; }
-      .nav-logo { font-size: 1.2rem; }
       .hero { padding: 7rem 1.5rem 3rem; }
-      .hero-info { gap: 1.5rem; }
       .visit-grid { grid-template-columns: 1fr; }
       .visit-map { aspect-ratio: 16/10; }
-      .cta-banner { padding: 3rem 1.5rem; }
       footer { flex-direction: column; text-align: center; }
-    }
-    @media (max-width: 480px) {
-      .hero-actions {
-        flex-direction: row;
-        width: 100%;
-      }
-      .hero-actions a {
-        flex: 1;
-        text-align: center;
-        padding: 0.85rem 1rem;
-        font-size: 0.9rem;
-      }
-      .hero-info {
-        flex-direction: row;
-        gap: 1.5rem;
-        width: 100%;
-        justify-content: center;
-      }
-      .age-gate-actions { flex-direction: row; }
     }
   </style>
 </head>
 <body>
 
-  <!-- AGE GATE -->
-  <div class="age-gate" id="ageGate">
-    <h2>Welcome to <span>Culture</span></h2>
-    <p>You must be 21 or older to enter this site.</p>
-    <div class="age-gate-actions">
-      <button class="age-yes" onclick="document.getElementById('ageGate').classList.add('hidden')">I'm 21+</button>
-      <button class="age-no" onclick="window.location.href='https://google.com'">Under 21</button>
-    </div>
-  </div>
-
   <!-- NAV -->
   <nav class="nav">
-    <a href="#" class="nav-logo"><img src="/images/culture-logo.png" alt="Culture Club"></a>
-    <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley?utm_source=google&utm_medium=cpc&utm_campaign=googlegeneralad&utm_id=generalad" class="nav-cta" target="_blank" rel="noopener">Shop Now</a>
+    <a href="#" class="nav-logo"><span>CULTURE</span> CLUB</a>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-badge">Open Now · Jurupa Valley</div>
+    <div class="hero-badge">Jurupa Valley</div>
     <h1>YOUR <span class="accent">CULTURE.</span><br>YOUR CLUB.</h1>
-    <p class="hero-sub">Premium retail experience in Jurupa Valley. Curated selection, knowledgeable staff, and a welcoming atmosphere — every&nbsp;visit.</p>
-    <div class="hero-actions">
-      <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley?utm_source=google&utm_medium=cpc&utm_campaign=googlegeneralad&utm_id=generalad" class="btn-primary" target="_blank" rel="noopener">Order Online</a>
-      <a href="https://maps.google.com/?q=10810+Limonite+Ave+Mira+Loma+CA+91752" class="btn-secondary" target="_blank" rel="noopener">Get Directions</a>
-    </div>
-    <div class="hero-info">
-      <div class="hero-info-item">
-        <div class="val">4.8★</div>
-        <div class="label">Google Rating</div>
-      </div>
-      <div class="hero-info-item">
-        <div class="val">2,000+</div>
-        <div class="label">Reviews</div>
-      </div>
-      <div class="hero-info-item">
-        <div class="val">7 Days</div>
-        <div class="label">Open Weekly</div>
-      </div>
-    </div>
+    <p class="hero-sub">A welcoming retail experience in Jurupa Valley. Curated selection, knowledgeable staff, and a friendly atmosphere — every visit.</p>
   </section>
 
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="section-tag">Why Culture</div>
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="section-tag">About Us</div>
     <h2 class="section-title">A Retail Experience<br>Like No Other</h2>
     <div class="feature-grid">
       <div class="feature-card">
         <div class="feature-icon">🎯</div>
         <h3>Curated Selection</h3>
-        <p>Hand-picked products from California's top brands. Quality you can trust, every time you visit.</p>
+        <p>Hand-picked from California's top names. Quality you can trust, every time you visit.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">💬</div>
         <h3>Expert Staff</h3>
-        <p>Our knowledgeable team is here to help you find exactly what you're looking for — no guesswork.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">⚡</div>
-        <h3>Online Ordering</h3>
-        <p>Browse our full menu and order ahead for quick in-store pickup. Skip the wait.</p>
+        <p>Our knowledgeable team is here to help you find exactly what you're looking for.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">🏷️</div>
         <h3>Daily Deals</h3>
         <p>Rotating specials and exclusive member rewards every day of the week.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🛡️</div>
-        <h3>Safe &amp; Licensed</h3>
-        <p>Fully licensed and compliant. Lab-tested products with complete transparency.</p>
       </div>
       <div class="feature-card">
         <div class="feature-icon">📍</div>
@@ -574,11 +311,8 @@
       <div class="visit-map">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d-117.5551!3d33.9987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dcca5e19d1b1f7%3A0x2cfe2d37a20e3e0!2s10810%20Limonite%20Ave%2C%20Mira%20Loma%2C%20CA%2091752!5e0!3m2!1sen!2sus!4v1"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Culture Club Jurupa Valley location map">
-        </iframe>
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Culture Club Jurupa Valley location map"></iframe>
       </div>
       <div class="visit-details">
         <div class="visit-item">
@@ -591,9 +325,7 @@
         </div>
         <div class="visit-item">
           <div class="visit-item-label">Phone</div>
-          <div class="visit-item-value">
-            <a href="tel:+19514446144">(951) 444-6144</a>
-          </div>
+          <div class="visit-item-value"><a href="tel:+19514446144">(951) 444-6144</a></div>
         </div>
         <div class="visit-item">
           <div class="visit-item-label">Hours</div>
@@ -607,35 +339,10 @@
     </div>
   </section>
 
-  <!-- REVIEWS -->
-  <section class="reviews">
-    <div class="section-tag">What People Say</div>
-    <h2 class="section-title">Rated 4.8 on Google</h2>
-    <div class="reviews-bar">
-      <div class="reviews-score">4.8</div>
-      <div>
-        <div class="reviews-stars">★★★★★</div>
-        <div class="reviews-count">Based on 2,059 Google Reviews</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <h2>Ready to Experience Culture?</h2>
-    <p>Browse our menu online and order for quick pickup — or just stop by. We'd love to see you.</p>
-    <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley?utm_source=google&utm_medium=cpc&utm_campaign=googlegeneralad&utm_id=generalad" class="btn-primary" target="_blank" rel="noopener">Shop the Menu</a>
-  </section>
-
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand"><span>CULTURE</span> CLUB · JURUPA VALLEY</div>
-    <div class="footer-links">
-      <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley?utm_source=google&utm_medium=cpc&utm_campaign=googlegeneralad&utm_id=generalad" target="_blank" rel="noopener">Website</a>
-      <a href="tel:+19514446144">Call Us</a>
-      <a href="https://maps.google.com/?q=10810+Limonite+Ave+Mira+Loma+CA+91752" target="_blank" rel="noopener">Directions</a>
-    </div>
-    <div class="footer-legal">© 2026 Culture Club. All rights reserved. License: C10-0000XXX. Must be 21+.</div>
+    <div class="footer-legal">© 2026 Culture Club. All rights reserved.</div>
   </footer>
 
 </body>
