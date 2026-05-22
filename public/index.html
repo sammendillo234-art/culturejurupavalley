@@ -9,16 +9,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Google tag (gtag.js) --> 
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BBTMRLDSJK"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-BBTMRLDSJK');
+    // Explicit cross-domain linker settings for the ad landing pages and menu domains.
+    gtag('set', 'linker', {
+      domains: [
+        'discoverculturenow.com',
+        'tryculturejurupa.com',
+        'culturecannabisclub.com',
+        'shop.culturejurupa.com'
+      ],
+      accept_incoming: true,
+      decorate_forms: true
+    });
+
+    gtag('config', 'G-BBTMRLDSJK', {
+      linker: {
+        domains: [
+          'discoverculturenow.com',
+          'tryculturejurupa.com',
+          'culturecannabisclub.com',
+          'shop.culturejurupa.com'
+        ],
+        accept_incoming: true,
+        decorate_forms: true
+      }
+    });
   </script>
-  
+
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -341,7 +364,7 @@
   <!-- NAV -->
   <nav class="nav">
     <a href="#" class="nav-logo"><span>CULTURE</span> CLUB</a>
-    <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley?utm_source=google&utm_medium=cpc&utm_campaign=smartgeneral&utm_id=generalad" class="btn-shop btn-nav" rel="noopener">Learn More</a>
+    <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley" class="btn-shop btn-nav shop-now" rel="noopener">Learn More</a>
   </nav>
 
   <!-- HERO -->
@@ -350,7 +373,7 @@
     <h1>YOUR <span class="accent">CULTURE.</span><br>YOUR CLUB.</h1>
     <div class="hero-offer">30% OFF<br><span class="accent">CODE: GOOGLE30</span></div>
     <p class="hero-sub">A welcoming retail experience in Jurupa Valley. Curated selection, knowledgeable staff, and a friendly atmosphere — every visit.</p>
-    <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley?utm_source=google&utm_medium=cpc&utm_campaign=smartgeneral&utm_id=generalad" class="btn-shop btn-hero" rel="noopener">View Offerings</a>
+    <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley" class="btn-shop btn-hero shop-now" rel="noopener">View Offerings</a>
   </section>
 
   <!-- ABOUT -->
@@ -380,7 +403,7 @@
       </div>
     </div>
     <div class="about-cta">
-      <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley?utm_source=google&utm_medium=cpc&utm_campaign=smartgeneral&utm_id=generalad" class="btn-shop" rel="noopener">Learn More</a>
+      <a href="https://culturecannabisclub.com/stores/culture-jurupa-valley" class="btn-shop shop-now" rel="noopener">Learn More</a>
     </div>
   </section>
 
@@ -425,6 +448,77 @@
     <div class="footer-brand"><span>CULTURE</span> CLUB · JURUPA VALLEY</div>
     <div class="footer-legal">© 2026 Culture Club. All rights reserved.</div>
   </footer>
+
+  <!-- Attribution passthrough for Google Ads, GA4, and Dutchie/menu tracking. -->
+  <script>
+    (function () {
+      const destinationBase = 'https://culturecannabisclub.com/stores/culture-jurupa-valley';
+      const trackingKeys = [
+        'utm_source',
+        'utm_medium',
+        'utm_campaign',
+        'utm_content',
+        'utm_term',
+        'utm_id',
+        'gclid',
+        'gbraid',
+        'wbraid',
+        '_gl'
+      ];
+
+      function collectTrackingParams() {
+        const currentParams = new URLSearchParams(window.location.search);
+        const savedParams = new URLSearchParams(sessionStorage.getItem('cultureJurupaTrackingParams') || '');
+        const mergedParams = new URLSearchParams(savedParams.toString());
+
+        trackingKeys.forEach(function (key) {
+          if (currentParams.has(key)) {
+            mergedParams.set(key, currentParams.get(key));
+          }
+        });
+
+        sessionStorage.setItem('cultureJurupaTrackingParams', mergedParams.toString());
+        return mergedParams;
+      }
+
+      function buildDestinationUrl() {
+        const destinationUrl = new URL(destinationBase);
+        const params = collectTrackingParams();
+
+        params.forEach(function (value, key) {
+          if (value) {
+            destinationUrl.searchParams.set(key, value);
+          }
+        });
+
+        return destinationUrl.toString();
+      }
+
+      function updateShopLinks() {
+        const shopLinks = document.querySelectorAll('a.shop-now, a[href*="culturecannabisclub.com/stores/culture-jurupa-valley"], a[href*="shop.culturejurupa.com"]');
+
+        shopLinks.forEach(function (link) {
+          link.href = buildDestinationUrl();
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', updateShopLinks);
+
+      document.addEventListener('pointerdown', function (event) {
+        const link = event.target.closest('a.shop-now, a[href*="culturecannabisclub.com/stores/culture-jurupa-valley"], a[href*="shop.culturejurupa.com"]');
+        if (link) {
+          link.href = buildDestinationUrl();
+        }
+      });
+
+      document.addEventListener('click', function (event) {
+        const link = event.target.closest('a.shop-now, a[href*="culturecannabisclub.com/stores/culture-jurupa-valley"], a[href*="shop.culturejurupa.com"]');
+        if (link) {
+          link.href = buildDestinationUrl();
+        }
+      }, true);
+    })();
+  </script>
 
 </body>
 </html>
