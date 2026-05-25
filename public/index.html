@@ -450,75 +450,53 @@
   </footer>
 
   <!-- Attribution passthrough for Google Ads, GA4, and Dutchie/menu tracking. -->
-  <script>
-    (function () {
-      const destinationBase = 'https://culturecannabisclub.com/stores/culture-jurupa-valley';
-      const trackingKeys = [
-        'utm_source',
-        'utm_medium',
-        'utm_campaign',
-        'utm_content',
-        'utm_term',
-        'utm_id',
-        'gclid',
-        'gbraid',
-        'wbraid',
-        '_gl'
-      ];
+ <script>
+(function () {
+  const destinationBase = 'https://culturecannabisclub.com/stores/culture-jurupa-valley';
 
-      function collectTrackingParams() {
-        const currentParams = new URLSearchParams(window.location.search);
-        const savedParams = new URLSearchParams(sessionStorage.getItem('cultureJurupaTrackingParams') || '');
-        const mergedParams = new URLSearchParams(savedParams.toString());
+  // Keys we manage manually. _gl is NOT in this list — gtag owns it.
+  const trackingKeys = [
+    'utm_source', 'utm_medium', 'utm_campaign',
+    'utm_content', 'utm_term', 'utm_id',
+    'gclid', 'gbraid', 'wbraid'
+  ];
 
-        trackingKeys.forEach(function (key) {
-          if (currentParams.has(key)) {
-            mergedParams.set(key, currentParams.get(key));
-          }
-        });
-
-        sessionStorage.setItem('cultureJurupaTrackingParams', mergedParams.toString());
-        return mergedParams;
+  function collectTrackingParams() {
+    const currentParams = new URLSearchParams(window.location.search);
+    const savedParams = new URLSearchParams(
+      sessionStorage.getItem('cultureJurupaTrackingParams') || ''
+    );
+    trackingKeys.forEach(function (key) {
+      if (currentParams.has(key)) {
+        savedParams.set(key, currentParams.get(key));
       }
+    });
+    sessionStorage.setItem('cultureJurupaTrackingParams', savedParams.toString());
+    return savedParams;
+  }
 
-      function buildDestinationUrl() {
-        const destinationUrl = new URL(destinationBase);
-        const params = collectTrackingParams();
+  function buildDestinationUrl() {
+    const destinationUrl = new URL(destinationBase);
+    collectTrackingParams().forEach(function (value, key) {
+      if (value) destinationUrl.searchParams.set(key, value);
+    });
+    return destinationUrl.toString();
+  }
 
-        params.forEach(function (value, key) {
-          if (value) {
-            destinationUrl.searchParams.set(key, value);
-          }
-        });
+  // Set the base href ONCE on load. After this, leave the DOM alone
+  // so gtag's auto-linker can decorate with a fresh _gl at click time.
+  document.addEventListener('DOMContentLoaded', function () {
+    // Capture incoming params into sessionStorage on page load.
+    collectTrackingParams();
 
-        return destinationUrl.toString();
-      }
-
-      function updateShopLinks() {
-        const shopLinks = document.querySelectorAll('a.shop-now, a[href*="culturecannabisclub.com/stores/culture-jurupa-valley"], a[href*="shop.culturejurupa.com"]');
-
-        shopLinks.forEach(function (link) {
-          link.href = buildDestinationUrl();
-        });
-      }
-
-      document.addEventListener('DOMContentLoaded', updateShopLinks);
-
-      document.addEventListener('pointerdown', function (event) {
-        const link = event.target.closest('a.shop-now, a[href*="culturecannabisclub.com/stores/culture-jurupa-valley"], a[href*="shop.culturejurupa.com"]');
-        if (link) {
-          link.href = buildDestinationUrl();
-        }
-      });
-
-      document.addEventListener('click', function (event) {
-        const link = event.target.closest('a.shop-now, a[href*="culturecannabisclub.com/stores/culture-jurupa-valley"], a[href*="shop.culturejurupa.com"]');
-        if (link) {
-          link.href = buildDestinationUrl();
-        }
-      }, true);
-    })();
-  </script>
+    const shopLinks = document.querySelectorAll('a.shop-now');
+    const url = buildDestinationUrl();
+    shopLinks.forEach(function (link) {
+      link.href = url;
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
